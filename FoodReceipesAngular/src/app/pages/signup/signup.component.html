@@ -1,0 +1,122 @@
+<div class="container-fluid d-flex justify-content-end align-items-center">
+  <div class="box p-5" style="margin-right: 300px">
+    <p class="fs-4 mb-5">What's Cooking?</p>
+    <p class="fs-6">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is
+      one stop solution to find recipes that best match the ingredients i in
+      hand. "What's Cooking?" makes your life easier by helping you decide what
+      to cook based on the time and ingredients in hand. You no longer must surf
+      various websites to find the "perfect" recipe. As a result, the team
+      decided to hire a Full Stack developer who could develop a "What's
+      Cooking?" web application with a rich and user-friendly interface.
+    </p>
+    <p class="fs-6">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </div>
+  <div class="sub-container p-5 bg-white">
+    <div class="header">
+      <div class="main-header text-center mb-3">
+        <span class="fs-4" style="color: #202020">Food Receipes</span>
+      </div>
+      <div class="sub-header text-center fs-6">Registration</div>
+    </div>
+    <div class="body">
+      <form #registerForm="ngForm" (ngSubmit)="handleSubmit(registerForm)">
+        <div class="mb-3 pt-5">
+          <label for="email" class="form-label">UserName</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+          />
+          <div
+            id="emailHelp"
+            class="form-text text-danger"
+            style="display: none"
+          >
+            Please Enter UserNames
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            required
+          />
+
+          <div
+            id="passwordHelp"
+            class="form-text w-50 text-danger"
+            style="display: none"
+          >
+            Please Enter Password
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="confirmPassword"
+            name="confirmPassword"
+            ngModel
+            required
+          />
+          <div
+            id="confirmPasswordHelp"
+            class="form-text w-100 text-danger"
+            style="display: none"
+          >
+            Please Enter Confirm Password
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              value="ADMIN"
+              [(ngModel)]="role"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Admin
+            </label>
+          </div>
+          <div class="form-check mx-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              value="USER"
+              [(ngModel)]="role"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              User
+            </label>
+          </div>
+        </div>
+        <button type="submit" color="primary" class="w-100 btn btn-primary">
+          Register
+        </button>
+      </form>
+      <button
+        color="primary"
+        class="w-100 mt-2 btn btn-link text-decoration-none"
+        (click)="handleSignIn()"
+      >
+        I have already account
+      </button>
+    </div>
+  </div>
+</div>

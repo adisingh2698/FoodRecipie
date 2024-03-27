@@ -1,0 +1,51 @@
+.container-fluid {
+  height: 100vh;
+  width: 100vw;
+  padding: 0px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://wallpapers.com/images/featured/food-table-1j6ik0elenqlwh4k.jpg");
+}
+
+.box {
+  width: 500px;
+  height: 500px;
+  /* margin-left: 500px; */
+  background-color: white;
+  opacity: 0.8;
+  color: black;
+}
+
+.container-fluid .sub-container {
+  height: fit-content;
+  width: 400px;
+  height: 100%;
+  /* border: 0.5px solid lightgrey; */
+  /* border-radius: 5px; */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.blue {
+  color: #4186f3;
+}
+
+.orange {
+  color: #eb4534;
+}
+
+.yellow {
+  color: #fbbf04;
+}
+
+.green {
+  color: #32a951;
+}
+
+.l-grey {
+  color: grey;
+}

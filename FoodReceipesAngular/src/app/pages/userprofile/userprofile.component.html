@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="sub-container border p-5">
+    <h4 class="mb-4 fs-4 text-primary" style="font-weight: 500">Profile</h4>
+
+    <form>
+      <div class="d-flex">
+        <div class="form-group mb-4 w-50 me-1">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" [(ngModel)]="fullName" />
+          <small
+            id="nameHelp"
+            class="form-text text-danger"
+            style="display: none"
+            >Name Is Required</small
+          >
+        </div>
+        <div class="form-group mb-4 w-50">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" />
+          <small
+            id="emailHelp"
+            class="form-text text-danger"
+            style="display: none"
+            >Email Is Required</small
+          >
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="address" />
+        <small
+          id="addressHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Address Is Required</small
+        >
+      </div>
+      <div class="d-flex">
+        <div class="form-group mb-4 w-50 me-1">
+          <label for="contact">Contact</label>
+          <input type="tel" class="form-control" id="contact" [(ngModel)]="contact" />
+          <small
+            id="contactHelp"
+            class="form-text text-danger"
+            style="display: none"
+            >Please Enter Contact</small
+          >
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary float-start"
+        (click)="handleSubmit()"
+      >
+        Submit
+      </button>
+      <button
+        type="button"
+        class="btn btn-light float-end"
+        (click)="handleClear()"
+      >
+        Clear
+      </button>
+    </form>
+  </div>
+</div>

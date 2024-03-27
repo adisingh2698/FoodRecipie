@@ -1,0 +1,198 @@
+<div class="container-fluid d-flex flex-wrap">
+  <div class="tour-location">
+    <form class="d-flex">
+      <div class="mb-5 d-flex me-5">
+        <select class="form-control" id="category" style="width: 200px">
+          <option value="">Select Category</option>
+          <option value="STARTER">Starter</option>
+          <option value="BREAKFAST">Breakfast</option>
+          <option value="LUNCH">Lunch</option>
+          <option value="DINNER">Dinner</option>
+        </select>
+        <button
+          class="btn btn-primary w-50 mx-2"
+          (click)="handleCategorySearch()"
+        >
+          Search
+        </button>
+        <button class="btn btn-light w-50" (click)="handleSearchClear()">
+          Clear
+        </button>
+      </div>
+      <div class="mb-5 d-flex float-right">
+        <input
+          type="text"
+          class="form-control"
+          style="width: 200px"
+          id="keyword"
+          name="keyword"
+        />
+        <button class="btn btn-primary w-50 mx-2" (click)="handleSearch()">
+          Search
+        </button>
+        <button class="btn btn-light w-50" (click)="handleSearchClear()">
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-0 d-flex flex-wrap" style="width: 100%; padding-top: 100px">
+    <ng-container *ngFor="let item of List" class="mt-0 p-5" style="width: 60%">
+      <div class="card mx-2" style="width: 18rem">
+        <img class="card-img-top" [src]="item.imageUrl" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+          <p class="card-text">Category : {{ item.category }}</p>
+          <a class="btn btn-primary" (click)="handleCopy(item)">View</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+ 
+
+  <div
+    [class]="
+      IsReceipesInfoView ? 'mt-5 p-5 border bg-light visible' : 'invisible'
+    "
+    style="width: 40%"
+  >
+    <h4 class="text-danger mb-4">RECEIPES INFORMATION</h4>
+    <form>
+      <div class="form-group mb-4 w-100 me-1">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Name :&nbsp;</label
+          >
+          <!-- <input type="text" class="form-control" id="name" disabled /> -->
+          <div id="name"></div>
+        </div>
+
+        <small id="nameHelp" class="form-text text-danger" style="display: none"
+          >Receipes Name Is Required</small
+        >
+      </div>
+      <div class="form-group mb-4 w-100">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Description :&nbsp;</label
+          >
+          >          <div id="description"></div>
+        </div>
+        
+        <small
+          id="descriptionHelp"
+          class="form-text text-danger"
+          style="display: none"
+          ></small
+        >
+      </div>
+      <div class="form-group mb-4">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Ingredients :&nbsp;</label
+          >
+         
+          <div id="ingredients"></div>
+        </div>
+       
+        <small
+          id="ingredientsHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Ingredients Is Required</small
+        >
+      </div>
+      <div class="form-group mb-4">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Cooking Steps :&nbsp;</label
+          >
+          <!-- <input type="text" class="form-control" id="name" disabled /> -->
+          <div id="cookingsteps"></div>
+        </div>
+        <!-- <label for="exampleInputPassword1">Cooking Steps</label>
+        <input type="text" class="form-control" id="cookingsteps" disabled /> -->
+        <small
+          id="cookingstepsHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Cooking Steps Is Required</small
+        >
+      </div>
+      <div class="form-group mb-4 w-100 mx-1">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Category :&nbsp;</label
+          >
+          <!-- <input type="text" class="form-control" id="name" disabled /> -->
+          <div class="text-dark" id="categorys" class="categorys"></div>
+        </div>
+        <small
+          id="categoryHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Category Is Required</small
+        >
+      </div>
+      <div class="form-group mb-4 w-100" *ngIf="UserReview">
+        <label for="exampleInputPassword1">Comment</label>
+        <input type="text" class="form-control" id="comment" />
+        <small
+          id="commentHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Comment Is Required</small
+        >
+      </div>
+      <div class="d-flex" *ngIf="UserReview">
+        <div class="mb-3 mx-2">
+          <label for="status" class="form-label">Status</label>
+          <input
+            type="text"
+            class="form-control text-dark"
+            id="userstatus"
+            name="userstatus"
+            disabled
+          />
+        </div>
+        <div class="mb-3 mx-2">
+          <label for="rating" class="form-label"></label>
+          <button
+            class="btn btn-primary mt-4 mx-5 likeButton"
+            id="white"
+            (click)="handleStatus(true)"
+          >
+            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+          </button>
+          <button
+            class="btn mt-4 btn-danger unlikeButton"
+            id="white"
+            (click)="handleStatus(false)"
+          >
+            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary text-white float-start"
+        (click)="handleSubmit()"
+        *ngIf="UserReview"
+      >
+        Submit
+      </button>
+      <button
+        type="button"
+        class="btn btn-light text-dark float-end"
+        (click)="handleClear()"
+      >
+        Clear
+      </button>
+    </form>
+  </div>
+</div>

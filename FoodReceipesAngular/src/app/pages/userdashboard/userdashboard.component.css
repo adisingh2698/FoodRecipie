@@ -1,0 +1,25 @@
+.container-fluid {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://rare-gallery.com/uploads/posts/913132-food-vegetables-tomatoes-salad-Pepper-Garlic-Paprika.jpg");
+}
+
+.header {
+  width: 100%;
+  height: 8%;
+  background-color: #202020;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+.nav-button {
+  cursor: pointer;
+}
+
+.body {
+  width: 100%;
+  height: 92%;
+}

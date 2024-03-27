@@ -1,0 +1,128 @@
+<h2 mat-dialog-title>RECEIPES INFORMATION</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="mt-5 p-5 border bg-light visible text-dark">
+    <form>
+      <div class="form-group mb-3 w-100 me-1">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Name :&nbsp;</label
+          >
+          <div id="name">{{ Name }}</div>
+        </div>
+
+        <small id="nameHelp" class="form-text text-danger" style="display: none"
+          >Receipes Name Is Required</small
+        >
+      </div>
+      <div class="form-group mb-3 w-100">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Description :&nbsp;</label
+          >
+          <div id="description">{{ Description }}</div>
+        </div>
+        <small
+          id="descriptionHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Receipes Description Is Required</small
+        >
+      </div>
+      <div class="form-group mb-3">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Ingredients :&nbsp;</label
+          >
+          <div id="ingredients">{{ Ingredients }}</div>
+        </div>
+        <small
+          id="ingredientsHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Ingredients Is Required</small
+        >
+      </div>
+      <div class="form-group mb-3">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Cooking Steps :&nbsp;</label
+          >
+          <div id="cookingsteps">{{ CookingSteps }}</div>
+        </div>
+        <small
+          id="cookingstepsHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Cooking Steps Is Required</small
+        >
+      </div>
+      <div class="form-group mb-3 w-100 me-1">
+        <div class="d-flex">
+          <label for="exampleInputEmail1" class="text-dark fw-bold"
+            >Category :&nbsp;</label
+          >
+          <!-- <input type="text" class="form-control" id="name" disabled /> -->
+          <div class="text-dark" id="categorys" class="categorys">
+            {{ Categorys }}
+          </div>
+        </div>
+        <small
+          id="categoryHelp"
+          class="form-text text-danger"
+          style="display: none"
+          >Category Is Required</small
+        >
+      </div>
+      <div class="form-group mb-3 w-100" *ngIf="UserReview">
+        <label for="exampleInputPassword1">Comment</label>
+        <input
+          type="text"
+          class="form-control"
+          id="comment"
+          [value]="Comment"
+          (change)="handleValue($event)"
+        />
+        <small
+          *ngIf="commentHelp"
+          id="commentHelp"
+          class="form-text text-danger"
+          >Comment Is Required</small
+        >
+      </div>
+      <div class="d-flex" *ngIf="UserReview">
+        <div class="mb-3 mx-2">
+          <label for="status" class="form-label">Status</label>
+          <input
+            type="text"
+            class="form-control text-dark"
+            id="userstatus"
+            name="userstatus"
+            [value]="UserStatus"
+            disabled
+          />
+        </div>
+        <div class="mb-3 mx-2">
+          <label for="rating" class="form-label"></label>
+          <button
+            class="btn btn-primary mt-4 mx-5 likeButton"
+            id="white"
+            (click)="handleStatus(true)"
+          >
+            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+          </button>
+          <button
+            class="btn mt-4 btn-danger unlikeButton"
+            id="white"
+            (click)="handleStatus(false)"
+          >
+            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="handleClear()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="handleSubmit()">Submit</button>
+</mat-dialog-actions>

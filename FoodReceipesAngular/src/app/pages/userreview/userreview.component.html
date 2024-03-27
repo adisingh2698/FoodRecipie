@@ -1,0 +1,113 @@
+<div class="container-fluid d-flex flex-column">
+  <div class="bg-light p-5" style="height: fit-content; width: 100%">
+    <form>
+      <div class="d-inline">
+        Receipe Name :
+        <div id="receipName" class="d-inline text-primary"></div>
+      </div>
+      <div class="w-100 d-flex">
+        <div class="mb-3 pt-5 w-25">
+          <label for="comment" class="form-label">Comment</label>
+          <input
+            type="text"
+            class="form-control"
+            id="comment"
+            name="comment"
+            [disabled]="IsDisable"
+          />
+          <div
+            id="commentHelp"
+            class="form-text text-danger"
+            style="display: none"
+          >
+            Please Enter Comment
+          </div>
+        </div>
+        <div class="mb-3 pt-5 mx-2">
+          <label for="status" class="form-label">Status</label>
+          <input
+            type="text"
+            class="form-control"
+            id="status"
+            name="status"
+            disabled
+          />
+          <div
+            id="commentHelp"
+            class="form-text text-danger"
+            style="display: none"
+          >
+            Please Enter Status
+          </div>
+        </div>
+        <div class="mb-3 pt-5 mx-2">
+          <label for="rating" class="form-label"></label>
+          <button
+            class="btn btn-primary mt-4 mx-5 likeButton"
+            id="white"
+            (click)="handleStatus(true)"
+            [disabled]="IsDisable"
+          >
+            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+          </button>
+          <button
+            class="btn mt-4 btn-danger unlikeButton"
+            id="white"
+            (click)="handleStatus(false)"
+            [disabled]="IsDisable"
+          >
+            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="mb-3 pt-5 mx-2">
+          <button
+            class="btn btn-primary mt-4 mx-5 text-white"
+            (click)="handleSubmit()"
+            [disabled]="IsDisable"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th>Receipes Name</th>
+        <th>Comment</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of List">
+        <td>{{ item.receipeName }}</td>
+        <td>{{ item.comment }}</td>
+        <td>
+          {{
+            item.status === null
+              ? ""
+              : item.status === "LIKE"
+              ? "LIKE"
+              : "DISLIKE"
+          }}
+        </td>
+        <td>
+          <button
+            class="btn btn-outline-dark ms-2 text-dark"
+            (click)="handleEditComment(item)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-outline-danger ms-2 text-danger"
+            (click)="handleDeleteComment(item.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

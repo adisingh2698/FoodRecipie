@@ -1,0 +1,31 @@
+.container-fluid {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  background-image: url("https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header {
+  width: 100%;
+  height: 8%;
+  background-color: black;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+.nav-button {
+  cursor: pointer;
+}
+
+.body {
+  width: 100%;
+  height: 92%;
+}
+
+.button {
+  text-decoration: none;
+  color: white;
+}
